@@ -1,0 +1,30 @@
+﻿@model StarWarsFan.Models.FanAndFavoritePlanetViewModel
+@{
+    ViewData["Title"] = "ViewFanNameAndFavoritePlanet";
+}
+
+<h1>@Model.Name here is a list of your favorite planets</h1>
+
+<table>
+    <thead>
+        <tr>
+
+            <th>Planet Name</th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var planet in Model.ListOfPlanets)
+        {
+            <tr>
+
+                <td>@planet.Name <a asp-controller="StarWars" asp-action="ViewPlanetDetails" asp-route-Url="@planet.Url">View Planet Details</a> || 
+                                 <a asp-controller="StarWars" asp-action="DeleteResults" asp-route-Url="@planet.Url">Delete Planet From List</a></td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a class="nav-link" asp-area="" asp-controller="StarWars" asp-action="ViewAllPlanets">Add More Planets</a>

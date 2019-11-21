@@ -1,0 +1,27 @@
+﻿@model StarWarsFan.Models.PlanetViewModel
+@{
+    ViewData["Title"] = "ViewAllPlanets";
+}
+
+@*Dealing with bootstrap*@
+
+    <table class="table">
+        <thead>
+            <tr>
+                
+                <th>Planet Name</th>
+
+            </tr>
+        </thead>
+        <tbody class="table-striped">
+
+            @foreach (var planet in Model.ListOfPlanets)
+            {
+                <tr>
+                   
+                    <td>@planet.Name <a asp-controller="StarWars" asp-action="ViewFanNameAndFavoritePlanet" asp-route-Url="@planet.Url">Add Planet</a></td>
+                    
+                </tr>
+            }
+        </tbody>
+    </table>
